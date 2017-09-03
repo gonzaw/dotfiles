@@ -15,7 +15,7 @@ fi
 # Load the paths
 shopt -s nullglob
 for file in $(find $BASH/ -type f -name '*.bash'); do
-	if [[ $file = "path.bash" ]]
+	if [[ $(basename $file) = "path.bash" ]]
     then
 		source $file
     fi
@@ -24,7 +24,7 @@ done
 # Load every other bash
 shopt -s nullglob
 for file in $(find $BASH/ -type f -name '*.bash'); do
-	if [[ ! $file = "path.bash" && ! $file = "competion.bash" ]]
+	if [[ ! $(basename $file) = "path.bash" && ! $(basename $file) = "completion.bash" ]]
     then
 		source $file
     fi
@@ -33,7 +33,7 @@ done
 # Load completion.bash
 shopt -s nullglob
 for file in $(find $BASH/ -type f -name '*.bash'); do
-	if [[ $file = "competion.bash" ]]
+	if [[ $(basename $file) = "completion.bash" ]]
     then
 		source $file
     fi
