@@ -1,0 +1,42 @@
+[global_config]
+  enabled_plugins = CustomCommandsMenu, InactivityWatch
+  title_transmit_fg_color = "#dbdce6"
+  borderless = True
+  geometry_hinting = False
+  title_transmit_bg_color = "#008941"
+  hide_from_taskbar = True
+  always_split_with_profile = True
+[keybindings]
+  hide_window = F12
+[profiles]
+  [[default]]
+    background_image = None
+    split_to_group = True
+    foreground_color = "#92a7a8"
+  [[transparent]]
+    background_darkness = 0.85
+    background_image = None
+    background_type = transparent
+    foreground_color = "#ffffff"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+  [[quake]]
+    [[[child0]]]
+      position = -1:0
+      type = Window
+      order = 0
+      parent = ""
+      size = 1400, 450
+    [[[terminal1]]]
+      profile = transparent
+      type = Terminal
+      order = 0
+      parent = child0
+[plugins]

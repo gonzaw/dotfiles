@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Lets you ask a command. Returns '0' on 'yes'
+# ask 'Do you want to rebase?' && git svn rebase || echo 'Rebase aborted'
+function ask()
+{
+	echo -n "$@" '[y/n] ' ; read ans
+	case "$ans" in
+		y*|Y*) return 0 ;;
+		*) return 1 ;;
+	esac
+}

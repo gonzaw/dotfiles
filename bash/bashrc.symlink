@@ -1,0 +1,40 @@
+# shortcut to this dotfiles path is $BASH
+export BASH=$HOME/.dotfiles
+
+# your project folder that we can `c [tab]` to
+export PROJECTS=~/Projects
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# Load the paths
+shopt -s nullglob
+for file in $(find $BASH/ -type f -name '*.bash'); do
+	if [[ $file = "path.bash" ]]
+    then
+		source $file
+    fi
+done
+
+# Load every other bash
+shopt -s nullglob
+for file in $(find $BASH/ -type f -name '*.bash'); do
+	if [[ ! $file = "path.bash" && ! $file = "competion.bash" ]]
+    then
+		source $file
+    fi
+done
+
+# Load completion.bash
+shopt -s nullglob
+for file in $(find $BASH/ -type f -name '*.bash'); do
+	if [[ $file = "competion.bash" ]]
+    then
+		source $file
+    fi
+done
