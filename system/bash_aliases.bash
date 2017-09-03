@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Aliases
-alias ls='ls -h $LS_COLOR'
+alias ls='ls -Fh $LS_COLOR'
 alias la='ls -lah $LS_COLOR'
 alias ll='ls -lh $LS_COLOR'
 alias ssh='ssh -A'
@@ -12,6 +12,12 @@ alias ..='cl ..'
 alias trim_whitespace="sed -i 's/[ \t]*$//' "
 alias sush='ssh -l root'
 alias http_headers='curl -svo /dev/null'
+
+# interactive, verbose (prompt before overwrite, explain what is being done)
+alias cp='cp -iv'
+
+# interactive, verbose (prompt before overwrite, print the name of each file before moving it)
+alias mv='mv -iv'
 
 ##################################################
 # App-specific					 #
@@ -38,3 +44,9 @@ alias distro='lsb_release -is'								# Linux distro version (Ubuntu, Linux Mint
 alias distro_ver='lsb_release -rs'							# Linux version detail - just codename version (11.04, 11.10, etc)
 alias distro_vers='lsb_release -ds'							# Linux distro and version details (Ubuntu 11.04)
 alias space='df -h'									# disk space usage
+
+# echo all executable paths
+alias path='echo -e ${PATH//:/\\n}'
+
+# grep with colors
+alias grep='grep --colour'
