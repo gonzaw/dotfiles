@@ -13,7 +13,6 @@ then
 fi
 
 # Load the paths
-shopt -s nullglob
 for file in $(find $BASH/ -type f -name '*.bash'); do
 	if [[ $(basename $file) = "path.bash" ]]
     then
@@ -22,7 +21,6 @@ for file in $(find $BASH/ -type f -name '*.bash'); do
 done
 
 # Load every other bash
-shopt -s nullglob
 for file in $(find $BASH/ -type f -name '*.bash'); do
 	if [[ ! $(basename $file) = "path.bash" && ! $(basename $file) = "completion.bash" ]]
     then
@@ -31,7 +29,6 @@ for file in $(find $BASH/ -type f -name '*.bash'); do
 done
 
 # Load completion.bash
-shopt -s nullglob
 for file in $(find $BASH/ -type f -name '*.bash'); do
 	if [[ $(basename $file) = "completion.bash" ]]
     then

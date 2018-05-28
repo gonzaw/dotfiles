@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Adds the dotfiles bins to the path, as well as others
-export PATH=$PATH:./bin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/bin
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/.bash/bin
-export PATH=$PATH:$HOME/.bash/group/bin
-export PATH=$PATH:$BASH/bin
+[[ ":$PATH:" != *":./bin:"* ]] && PATH="./bin:${PATH}"
+[[ ":$PATH:" != *":/usr/local/bin:"* ]] && PATH="/usr/local/bin:${PATH}"
+[[ ":$PATH:" != *":/usr/local/sbin:"* ]] && PATH="/usr/local/sbin:${PATH}"
+[[ ":$PATH:" != *":/usr/bin:"* ]] && PATH="/usr/bin:${PATH}"
+[[ ":$PATH:" != *":/bin:"* ]] && PATH="/bin:${PATH}"
+[[ ":$PATH:" != *":$HOME/bin:"* ]] && PATH="$HOME/bin:${PATH}"
+[[ ":$PATH:" != *":$HOME/.bash/bin:"* ]] && PATH="$HOME/.bash/bin:${PATH}"
+[[ ":$PATH:" != *":$HOME/.bash/group/bin:"* ]] && PATH="$HOME/.bash/group/bin:${PATH}"
+[[ ":$PATH:" != *":$BASH/bin:"* ]] && PATH="$BASH/bin${PATH}"
 
 # Source global definitions
 GLOBAL_BASH_DEF='/etc/bashrc'
